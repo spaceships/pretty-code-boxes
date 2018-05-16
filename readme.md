@@ -1,7 +1,7 @@
 pretty-code-boxes
 =================
 
-![picture!](https://raw.githubusercontent.com/spaceships/pretty-code-boxes/master/pic.png)
+![picture!](https://raw.githubusercontent.com/spaceships/pretty-code-boxes/master/pic.png | width=300)
 
 My take on code listings in latex.
 

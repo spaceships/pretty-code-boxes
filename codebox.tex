@@ -6,16 +6,16 @@
 
 \NewEnviron{codebox}[1]{%
     \begin{tikzpicture}
-        \node (header) [] {#1};
+        \node (header) {#1};
         \linespread{1.2}
-        \node (body) [below=.1em of header.south west, anchor=north west, align=left] {
+        \node (body) [below=.1em of header] {
             \begin{varwidth}{\linewidth}%
                 \upshape%   no slant in definition/theorem statement!
-                \begin{tabbing}%
+                \begin{tabbing}
                     \quad\=\quad\=\quad\=\quad\=\kill
-                \BODY
-                \end{tabbing}%
-            \end{varwidth}%
+                    \BODY
+                \end{tabbing}
+            \end{varwidth}
         };
         \node (outline) [fit=(header)(body), draw] {};
         \draw (outline.west |- header.south) -- (outline.east |- header.south);

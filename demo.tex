@@ -15,4 +15,48 @@
     return $\textsf{Gb}(C; r),\, \textsf{En}(x_1 || \dots || x_n; r)$
 \end{codebox}
 
+\vspace{2em}
+
+\newcommand{\secparam}{\ensuremath{\lambda}\xspace}
+
+\newcommand{\FE}{\ensuremath{\mathsf{FE}}\xspace}
+\newcommand{\Setup}{\ensuremath{\mathsf{Setup}}\xspace}
+\newcommand{\Keygen}{\ensuremath{\mathsf{Keygen}}\xspace}
+\newcommand{\Enc}{\ensuremath{\mathsf{Enc}}\xspace}
+\newcommand{\Dec}{\ensuremath{\mathsf{Dec}}\xspace}
+
+\newcommand{\sk}{\ensuremath{\mathsf{sk}}\xspace}
+\newcommand{\pk}{\ensuremath{\mathsf{pk}}\xspace}
+\newcommand{\ct}{\ensuremath{\mathsf{ct}}\xspace}
+\newcommand{\cc}{\ensuremath{\mathsf{c}}\xspace}
+\newcommand{\ek}{\ensuremath{\mathsf{ek}}\xspace}
+\newcommand{\mm}{\ensuremath{\mathsf{m}}\xspace}
+\newcommand{\state}{\ensuremath{\mathsf{state}}\xspace}
+% \newcommand{\output}{\ensuremath{\mathsf{output}}\xspace}
+
+\newcommand{\FFF}{\ensuremath{\mathcal{F}}\xspace}
+\newcommand{\MMM}{\ensuremath{\mathcal{M}}\xspace}
+\newcommand{\AAA}{\ensuremath{\mathcal{A}}\xspace}
+
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand{\N}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand{\Zp}{\ensuremath{\mathbb{Z}_p}\xspace}
+\newcommand{\bool}{\ensuremath{\{0,1\}}\xspace}
+
+\newcommand{\pat}{\ensuremath{\mathsf{pat}}\xspace}
+\newcommand{\interpolate}{\ensuremath{\mathsf{Interpolate}}\xspace}
+\newcommand{\pair}{\ensuremath{\mathsf{pair}}\xspace}
+
+\newcommand\defeq{\stackrel{\mathclap{\normalfont\mbox{\scriptsize def}}}{=}}
+
+\newcommand{\Adv}[1]{\ensuremath{\mathsf{Adv}^{\mathsf{#1}}_{\Pi, \AAA}(\secparam)}\xspace}
+\newcommand{\Expt}[2]{\ensuremath{\mathsf{Expt}_{\Pi, \AAA}^{\mathsf{#1}}(\secparam, #2)}\xspace}
+\begin{codebox}{$\Expt{MP}{b}$}
+    $(\sk, \pk) \gets \Setup(1^\secparam)$\\
+    $(\mm_0^*, \mm_1^*, \state) \gets \AAA^{\Keygen(\sk, \cdot)}(1^\secparam, \pk)$\\
+    $\cc^* \gets \Enc(\pk, \mm_b^*)$\\
+    $b' \gets \AAA^{\Keygen(\sk, \cdot)}(\cc^*, \state)$\\
+    \textsf{output} $b'$
+\end{codebox}
+
 \end{document}

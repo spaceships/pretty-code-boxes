@@ -3,22 +3,24 @@
 \usepackage{tikz}
 \usetikzlibrary{fit, positioning, backgrounds}
 
+
 \NewEnviron{codebox}[1]{%
     \begin{tikzpicture}
         \node (header) [] {#1};
-        \node (body) [below=.1em of header] {
+        \linespread{1.2}
+        \node (body) [below=.1em of header.south west, anchor=north west, align=left] {
             \begin{varwidth}{\linewidth}%
                 \upshape%   no slant in definition/theorem statement!
                 \begin{tabbing}%
                     \quad\=\quad\=\quad\=\quad\=\kill
-                    \BODY
+                \BODY
                 \end{tabbing}%
             \end{varwidth}%
         };
         \node (outline) [fit=(header)(body), draw] {};
         \draw (outline.west |- header.south) -- (outline.east |- header.south);
         \begin{scope}[on background layer]
-            \fill [black!2] (outline.north west) rectangle (outline.south east |- header.south);
+            \fill [black!4] (outline.north west) rectangle (outline.south east |- header.south);
         \end{scope}
     \end{tikzpicture}
 }

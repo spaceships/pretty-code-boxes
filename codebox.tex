@@ -3,6 +3,14 @@
 \usepackage{tikz}
 \usetikzlibrary{fit, positioning, backgrounds}
 
+\NewEnviron{ccodebox}[1]{%
+    \let\xBODY\BODY
+    \begin{center}
+        \begin{codebox}{#1}
+        \xBODY
+    \end{codebox}
+    \end{center}
+}
 
 \NewEnviron{codebox}[1]{%
     \begin{tikzpicture}
@@ -24,3 +32,29 @@
         \end{scope}
     \end{tikzpicture}
 }
+
+
+% \begin{luacode}
+%     function insertnumbers(s)
+%         tex.sprint(string.gsub(s, [[\\]], [[\\\\arabic{LineNumber}.\\stepcounter{LineNumber}]]))
+%     end
+% \end{luacode}
+
+% \newcommand{\insertlinenos}[1]{%
+%     \luadirect{insertnumbers(\luastring{#1})}%
+% }
+
+% % \newcommand{\insertlinenos}[1]{%
+% %     \StrSubstitute{#1}{\\}{\\\arabic{LineNumber}.\stepcounter{LineNumber}}[\thetext]\thetext%
+% % }
+
+% \colorlet{linenocolor}{black!50}
+% \newcommand{\lineno}{{\color{linenocolor}\arabic{LineNumber}.\xspace\stepcounter{LineNumber}}}
+
+% \NewEnviron{ncodebox}[1]{
+%     \newcounter{LineNumber}
+%     \setcounter{LineNumber}{1}
+%     \begin{codebox}{#1}
+%         \insertlinenos{hello\\world}
+%     \end{codebox}
+% }

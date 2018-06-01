@@ -1,19 +1,22 @@
 \documentclass{article}
 
+\usepackage{xspace}
+\usepackage{amsmath}
+
 \input{codebox}
 
-\newcommand{\comment}[1]{\sl\small\color{black!50} \mbox{ // #1 }}
+\newcommand{\comment}[1]{{\sl\small\color{black!50} \mbox{ // #1 }}}
 
 \begin{document}
 
-\begin{codebox}{$\mathsf{Gb}'(C, \{s_i\}_{i \in [q^{2d}]}, x_1, \delta_1, \cdots, x_n, \delta_n)$}
+\begin{ccodebox}{$\mathsf{Gb}'(C, \{s_i\}_{i \in [q^{2d}]}, x_1, \delta_1, \cdots, x_n, \delta_n)$}
     \comment{Combine the \delta{}s using addition}\\
     $\Delta = \{ \sum_{j \in [\lambda]}  \delta_{i,j} \}_{i \in [n]}$\\
     \comment{Combine the seeds using \Delta}\\
     $r = \bigoplus_{i \in [\lambda]} s_{\Delta_i}$\\
     \comment{Call \textsf{Gb} and \textsf{En} using $r$}\\
     return $\textsf{Gb}(C; r),\, \textsf{En}(x_1 || \dots || x_n; r)$
-\end{codebox}
+\end{ccodebox}
 
 \vspace{2em}
 
